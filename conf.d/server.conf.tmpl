@@ -1,0 +1,34 @@
+server {
+    listen       8080;
+    server_name  _;
+    
+    # If SSL is enable, harden the protocols and ciphers allowed
+    #ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    #ssl_ciphers         ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS
+    #ssl_certificate     /usr/local/nginx/conf/cert.pem;
+    #ssl_certificate_key /usr/local/nginx/conf/cert.key;
+    #ssl_session_cache   shared:SSL:10m;
+    #ssl_session_timeout 10m;
+    
+    location / {
+        # proxy all traffic to this URL, 
+        # note the trailing slash strips out the /proxy path on 
+        # the request to the upstream server
+        proxy_pass http://openshift-jee-sample:8080/;
+        
+        # its helpful to cache these responses
+        proxy_cache globalcache;
+    }
+    
+    # For status of ngnix service
+    location /nginx_status {
+        # Enable Nginx stats
+        stub_status on;
+        # Only allow access from localhost
+        allow 127.0.0.1;
+        # Other request should be denied
+        deny all;
+        # No need to log this request, its just noise
+        access_log off;
+    }
+}
