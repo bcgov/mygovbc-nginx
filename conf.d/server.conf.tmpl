@@ -3,7 +3,7 @@ server {
     server_name  _;
     
     # Allows non-standard headers like SMGOV_USERGUID
-    underscores_in_headers on;
+    ignore_invalid_headers off;
     
     # If SSL is enable, harden the protocols and ciphers allowed
     #ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
