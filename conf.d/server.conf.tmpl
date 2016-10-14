@@ -16,6 +16,9 @@ server {
         # the request to the upstream server
         proxy_pass http://mygovbc-app:8080/;
         
+        # Ensure HTTP get passed thru
+        proxy_pass_request_headers on;
+        
         # its helpful to cache these responses
         proxy_cache globalcache;
     }
