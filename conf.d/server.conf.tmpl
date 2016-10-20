@@ -20,6 +20,9 @@ server {
         
         # its helpful to cache these responses
         proxy_cache globalcache;
+        
+        # test
+        deny 142.36.131.177;
     }
     
     # For status of ngnix service
