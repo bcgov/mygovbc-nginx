@@ -21,6 +21,9 @@ server {
         
         # its helpful to cache these responses
         proxy_cache globalcache;
+        
+        #set host to help downstream app server
+        proxy_set_header Host   $host;
     }
     location /mygovbcSWR {
         # proxy all traffic to this URL, 
@@ -33,6 +36,9 @@ server {
         
         # its helpful to cache these responses
         proxy_cache globalcache;
+        
+        #set host to help downstream app server
+        proxy_set_header Host   $host;
     }
     
     # For status of ngnix service
