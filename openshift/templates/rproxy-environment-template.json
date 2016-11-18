@@ -175,6 +175,12 @@
       "description": "Image tag to watch for changes and trigger deployment.",
       "value": "dev",
       "required": true
+    },
+    {
+      "name": "NGINX_PROXY_HOST",
+      "displayName": "NGinx Proxy Host",
+      "description": "The HTTP Header Host value we want to give to the downstream HTTP server",
+      "required": true
     }
   ]
 }
