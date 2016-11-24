@@ -29,7 +29,7 @@ server {
         proxy_cookie_path /core /;
         
         # rewrite response location headers
-        proxy_redirect http://${NGINX_PROXY_HOST}/core/ https://${NGINX_PROXY_HOST};
+        proxy_redirect http://${NGINX_PROXY_HOST}/core/ https://${NGINX_PROXY_HOST}/;
     }
     location /mygovbcSWR {
         # proxy all traffic to this URL, 
