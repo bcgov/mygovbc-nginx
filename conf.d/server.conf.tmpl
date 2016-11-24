@@ -26,7 +26,7 @@ server {
         proxy_cache globalcache;
         
         # rewrite cookie path
-        proxy_cookie_path /core/ /;
+        proxy_cookie_path /core /;
     }
     location /mygovbcSWR {
         # proxy all traffic to this URL, 
